@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Skill 管理器</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="usage.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">S</div>
+    <div class="brand-copy"><span class="eyebrow">LOCAL SKILL LIBRARY</span><h1>Skill 管理器</h1></div>
+    <div class="topbar-actions"><span id="status" role="status" aria-live="polite"></span><button id="scan" class="action-button primary-button" type="button">↻ 扫描更新</button></div>
+  </header>
+  <main>
+    <aside aria-label="筛选与导航">
+      <label class="search-wrap"><span class="sr-only">搜索 Skill</span><input id="search" placeholder="搜索名称、用途或调用名"></label>
+      <div class="filter-stack">
+        <label><span class="field-caption">来源</span><select id="source"><option value="">全部来源</option><option value="personal">个人</option><option value="user">用户</option><option value="plugin">插件</option><option value="system">系统</option><option value="project">项目</option><option value="unknown">未知</option></select></label>
+        <label><span class="field-caption">本地化状态</span><select id="statusFilter"><option value="">全部状态</option><option value="ready">已本地化</option><option value="pending">待汉化</option><option value="repair-needed">需要修复</option></select></label>
+      </div>
+      <nav class="library-views" aria-label="Skill 视图">
+        <p class="nav-heading">我的技能库</p>
+        <button id="viewAvailable" type="button" data-usage-view="available">可用 Skill <strong id="availableCount">0</strong></button>
+        <button id="viewAll" type="button" data-usage-view="all">全部记录 <strong id="allCount">0</strong></button>
+        <button id="viewFavorites" type="button" data-usage-view="favorites">我的收藏 <strong id="favoriteCount">0</strong></button>
+        <button id="viewRecent" type="button" data-usage-view="recent">最近引用 <strong id="recentCount">0</strong></button>
+      </nav>
+      <div class="inbox" aria-labelledby="inboxTitle">
+        <h2 id="inboxTitle" class="nav-heading">待处理中心</h2>
+        <button type="button" data-inbox="pending">待汉化 <strong id="pendingCount">0</strong></button>
+        <button type="button" data-inbox="repair">需要修复 <strong id="repairCount">0</strong></button>
+        <button type="button" data-inbox="unavailable">已失效 <strong id="unavailableCount">0</strong></button>
+        <button type="button" data-inbox="">查看全部记录</button>
+      </div>
+      <div class="category-block"><button id="categoryToggle" type="button" aria-expanded="false">分类 <span aria-hidden="true">⌄</span></button><div id="categoryPanel" hidden><div id="categories"></div><button id="addCategory" type="button">＋ 新增分类</button></div></div>
+    </aside>
+    <section id="workspace" class="workspace" aria-label="Skill 列表和详情">
+      <div class="list-panel"><div class="panel-heading"><div><span class="eyebrow">BROWSE</span><h2>技能库</h2></div><span id="listCount" class="result-count"></span></div><div id="list" class="skill-list"></div></div>
+      <form id="edit" class="detail-panel" hidden><div class="detail-heading"><div><span class="eyebrow">DETAILS</span><h2 id="detailTitle">Skill 详情</h2></div><span id="detailStatus" class="skill-badge"></span></div><p class="detail-intro">编辑展示信息与分类，原始调用名和说明保留在下方。</p><label>中文展示名<input id="name" required></label><label>中文说明<textarea id="summary" required></textarea></label><label>分类<select id="category"></select></label><label class="checkbox-row"><input id="confirmed" type="checkbox"> 确认写入受保护来源</label><div class="original-card"><span class="field-caption">原始信息</span><div id="original"></div></div><div class="edit-actions"><button type="submit" class="action-button primary-button">保存修改</button><button type="button" id="restore" class="action-button">恢复</button><button type="button" id="useSkill" class="action-button">复制调用名</button></div></form>
+    </section>
+  </main>
+  <section id="categoryDialog" class="dialog" hidden role="dialog" aria-modal="true" aria-labelledby="categoryDialogTitle"><form id="categoryForm"><h2 id="categoryDialogTitle">新增分类</h2><label>分类 ID<input id="categoryId" required pattern="[a-z0-9]+(?:-[a-z0-9]+)*"></label><label>分类名称<input id="categoryName" required></label><div class="dialog-actions"><button type="submit">确定</button><button type="button" id="categoryCancel">取消</button></div></form></section>
+  <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

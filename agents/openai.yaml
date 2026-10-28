@@ -1,0 +1,6 @@
+interface:
+  display_name: "Skill 管理器"
+  short_description: "统一安装、汉化、分类、索引并可视化管理本地 Skill"
+  default_prompt: "Use $skill-library-manager to install or sync Skills and open the local management interface."
+policy:
+  allow_implicit_invocation: false

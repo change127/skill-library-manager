@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "categories": [
+    {
+      "id": "development",
+      "name": "开发流程",
+      "order": 10,
+      "priority": 50,
+      "keywords": ["code", "debug", "test", "review", "git", "worktree", "development", "implementation", "programming"]
+    },
+    {
+      "id": "browser-desktop",
+      "name": "浏览器与桌面",
+      "order": 20,
+      "priority": 80,
+      "keywords": ["browser", "chrome", "desktop", "windows app", "computer use"]
+    },
+    {
+      "id": "documents-office",
+      "name": "文档与办公",
+      "order": 30,
+      "priority": 70,
+      "keywords": ["pdf", "document", "docx", "word", "spreadsheet", "excel", "workbook", "slides", "presentation", "pptx"]
+    },
+    {
+      "id": "visual-design",
+      "name": "视觉与设计",
+      "order": 40,
+      "priority": 60,
+      "keywords": ["image", "images", "imagegen", "photo", "poster", "visual", "design", "illustration", "artwork"]
+    },
+    {
+      "id": "skills-plugins",
+      "name": "Skill 与插件",
+      "order": 50,
+      "priority": 90,
+      "keywords": ["skill", "plugin", "marketplace"]
+    },
+    {
+      "id": "openai-codex",
+      "name": "OpenAI 与 Codex",
+      "order": 60,
+      "priority": 100,
+      "keywords": ["openai", "codex", "chatgpt", "responses api", "realtime api"]
+    },
+    {
+      "id": "templates-automation",
+      "name": "模板与自动化",
+      "order": 70,
+      "priority": 85,
+      "keywords": ["template", "automation", "scheduled", "reminder", "recurring"]
+    },
+    {
+      "id": "other",
+      "name": "其他",
+      "order": 80,
+      "priority": 0,
+      "keywords": []
+    }
+  ]
+}

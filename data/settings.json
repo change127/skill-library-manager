@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "localization": {
+    "source_policy": {
+      "personal": "auto_apply",
+      "user": "auto_apply",
+      "plugin": "require_confirmation",
+      "system": "require_confirmation",
+      "project": "require_confirmation",
+      "unknown": "require_confirmation"
+    }
+  },
+  "external_installs": {
+    "discovery": "next_sync_or_ui_open",
+    "approval_policy": "use_source_policy"
+  }
+}

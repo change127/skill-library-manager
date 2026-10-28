@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+*.exe
+*.log
+data/catalog.json
+data/usage.json
+data/install-snapshot.json
+data/backups/
+data/locks/
+data/*.lock
+*.tmp
+.DS_Store
