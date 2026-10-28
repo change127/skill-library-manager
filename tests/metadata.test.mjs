@@ -3,6 +3,7 @@ import {
   mkdtemp as fsMkdtemp,
   mkdir,
   readFile,
+  realpath,
   readdir,
   rename,
   rm,
@@ -60,7 +61,7 @@ test('creates agents/openai.yaml when metadata is missing', async () => {
     content,
     `interface:\n  display_name: "PDF 文件处理"\n  short_description: "读取、创建、填写、渲染并检查版式敏感的 PDF 文件内容"\n`,
   );
-  assert.equal(result.metadataPath, path.join(skillDirectory, 'agents', 'openai.yaml'));
+  assert.equal(result.metadataPath, await realpath(path.join(skillDirectory, 'agents', 'openai.yaml')));
   assert.equal(result.previousExisted, false);
   assert.match(result.backupPath, new RegExp(`^${escapeRegExp(path.resolve(backupRoot))}`));
 });
